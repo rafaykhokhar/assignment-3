@@ -1,0 +1,227 @@
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+       
+        body {
+            background: url('https://i.imgur.com/GMmCQHC.png') no-repeat center center fixed;
+            background-size: cover;
+            background-color: #060708;
+            color: #1d2224;
+            margin: 0;
+        }
+
+        .form-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .page-content {
+            background-color: rgba(52, 73, 94, 0.8);
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* Updated styles for tab buttons */
+        .tab-button {
+            background-color: #3498db; /* Blue color for buttons */
+            border-color: #3498db;
+            font-size: 12px; /* Adjust font size */
+            padding: 8px 12px; /* Adjust padding */
+        }
+
+        .tab-button:hover {
+            background-color: #2980b9;
+            border-color: #2980b9;
+        }    </style>
+
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto mt-8 page-content">
+        <div class="bg-white p-8 rounded-lg shadow-md">
+            <h1 class="text-2xl font-semibold mb-4">Student Registration Form</h1>
+
+            <!-- Step Navigation Tabs -->
+            <div class="mb-4">
+                <ul class="flex">
+                    <li class="mr-2">
+                        <a href="#" data-step="information" class="tab-button bg-indigo-400 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300">Information</a>
+                    </li>
+                    <li class="mr-2">
+                        <a href="#" data-step="address" class="tab-button bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300">Address</a>
+                    </li>
+                    <li class="mr-2">
+                        <a href="#" data-step="contact" class="tab-button bg-pink-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300">Contact</a>
+                    </li>
+                    <li>
+                        <a href="#" data-step="other" class="tab-button bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300">Other</a>
+                    </li>
+                </ul>
+            </div>
+
+            
+
+            <!-- Step Forms -->
+            <form id="registrationForm">
+                <!-- Information Step -->
+                <div class="step" id="information">
+                    <div class="mb-4">
+                        <label for="full_name" class="block text-gray-600">Full Name</label>
+                        <input type="text" id="full_name" name="full_name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="Rafay Khokhar" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="registration_no" class="block text-gray-600">Registration No</label>
+                        <input type="text" id="registration_no" name="registration_no" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="2021-Cs-534" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="age" class="block text-gray-600">Age</label>
+                        <input type="number" id="age" name="age" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="21" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-600">Gender</label>
+                        <div class="flex items-center">
+                            <input type="radio" id="male" name="gender" value="male" class="mr-2">
+                            <label for="male">Male</label>
+                            <input type="radio" id="female" name="gender" value="female" class="mr-2 ml-4">
+                            <label for="female">Female</label>
+                            <input type="radio" id="other_gender" name="gender" value="other" class="mr-2 ml-4">
+                            <label for="other_gender">Other</label>
+                        </div>
+                    </div>
+                    <!-- Add more information fields here -->
+                    <button type="button" class="next-button bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300" data-next-step="address">Next</button>
+                </div>
+            
+                <!-- Address Step -->
+                <div class="hidden step" id="address">
+                    <div class="mb-4">
+                        <label for="address" class="block text-gray-600">Address</label>
+                        <textarea id="address" name="address" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="Street Address" required></textarea>
+                    </div>
+                    <div class="mb-4">
+                        <label for="city" class="block text-gray-600">City</label>
+                        <input type="text" id="city" name="city" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="Narowal" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="state" class="block text-gray-600">State</label>
+                        <select id="state" name="state" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required>
+                            <option value="ny">Adda siraj</option>
+                            <option value="ca">Budha Dhola</option>
+                            <option value="tx">Shahdrah</option>
+                        </select>
+                    </div>
+                    <!-- Add more address fields here -->
+                    <button type="button" class="prev-button bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300" data-prev-step="information">Previous</button>
+                    <button type="button" class="next-button bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300" data-next-step="contact">Next</button>
+                </div>
+            
+                <!-- Contact Step -->
+                <div class="hidden step" id="contact">
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-600">Email Address</label>
+                        <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="rafaykhokhar.ra.com" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="phone" class="block text-gray-600">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="(+92)333 1234 567" required>
+                    </div>
+                    <!-- Add more contact fields here -->
+                    <button type="button" class="prev-button bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300" data-prev-step="address">Previous</button>
+                    <button type="button" class="next-button bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300" data-next-step="other">Next</button>
+                </div>
+            
+                <!-- Other Step -->
+                <div class="hidden step" id="other">
+                    <div class="mb-4">
+                        <label for="course" class="block text-gray-600">Course</label>
+                        <input type="text" id="course" name="course" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="Machine Learning" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="comments" class="block text-gray-600">Comments</label>
+                        <textarea id="comments" name="comments" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="Additional comments"></textarea>
+                    </div>
+                    <!-- Add more fields for other information here -->
+                    
+                    <button type="button" class="prev-button bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300" data-prev-step="contact">Previous</button>
+                    <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition duration-300">Submit</button>
+                </div>
+
+                <div class="hidden step" id="thank-you">
+                    <h2 class="text-2xl font-semibold mb-4">Thank You!</h2>
+                    <p>Your form has been submitted successfully. We appreciate your information.</p>
+                </div>
+
+ 
+
+                
+            </form>
+            
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for handling step navigation
+        const steps = document.querySelectorAll('.step');
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const nextButtons = document.querySelectorAll('.next-button');
+        const prevButtons = document.querySelectorAll('.prev-button');
+
+        tabButtons.forEach((button) => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const stepId = e.target.getAttribute('data-step');
+                showStep(stepId);
+            });
+        });
+
+        nextButtons.forEach((button) => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const currentStepId = e.target.closest('.step').id;
+                const nextStepId = e.target.getAttribute('data-next-step');
+                showStep(nextStepId);
+            });
+        });
+
+        prevButtons.forEach((button) => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const currentStepId = e.target.closest('.step').id;
+                const prevStepId = e.target.getAttribute('data-prev-step');
+                showStep(prevStepId);
+            });
+        });
+
+        function showStep(stepId) {
+            steps.forEach((step) => {
+                if (step.id === stepId) {
+                    step.classList.remove('hidden');
+                } else {
+                    step.classList.add('hidden');
+                }
+            });
+        }
+
+        const form = document.getElementById('registrationForm');
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent the default form submission behavior
+
+        // You can add any additional logic here if needed (e.g., sending data to a server)
+
+        // Show the thank-you step
+        showStep('thank-you');
+    });
+
+        
+    </script>
+</body>
+</html>
